@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aarogya Care</title>
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Top Contact Bar */
+    .topbar {
+      background-color: #f1f1f1;
+      padding: 8px 0;
+      text-align: center;
+    }
+    .contact-info {
+      display: inline-flex;
+      align-items: center;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .contact-info::before {
+      content: "•";
+      background-color: #F17949;
+      color: white;
+      border-radius: 50%;
+      padding: 3px 6px;
+      margin-right: 8px;
+      font-size: 12px;
+    }
+
+    /* Header Container */
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      flex-direction: column;
+    }
+
+    /* Logo Text */
+    .logo-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      font-weight: bold;
+      font-size: 1.8rem;
+      color: #041848;
+    }
+
+    .logo-text img {
+      width: 50px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    /* Hamburger Menu Button */
+    .three-dot-menu {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 100;
+    }
+
+    .three-dot-menu span {
+      background-color: #041848;
+      height: 2px;
+      width: 24px;
+      margin: 4px 0;
+      transition: 0.3s ease;
+    }
+
+    /* Navigation Styles */
+    .nav-menu {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 25px;
+      padding: 15px 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      font-weight: 600;
+      color: #000;
+      font-size: 16px;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    .nav-link.active {
+      color: #E26B6B;
+    }
+
+    .nav-link.active::after {
+      content: "";
+      position: absolute;
+      width: 70%;
+      height: 3px;
+      background-color: #FFC933;
+      bottom: -8px;
+      left: 15%;
+    }
+
+    .nav-link:hover {
+      color: #E26B6B;
+    }
+
+    /* Hide the toggle input but keep it functional */
+    #mobile-menu-toggle {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 992px) {
+      .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo-text {
+        margin-bottom: 0;
+      }
+
+      .three-dot-menu {
+        display: flex;
+      }
+
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 10px 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        z-index: 99;
+      }
+
+      .nav-item {
+        border-bottom: 1px solid #f1f1f1;
+      }
+
+      .nav-link {
+        display: block;
+        padding: 12px 20px;
+      }
+
+      .nav-link.active::after {
+        display: none;
+      }
+
+      #mobile-menu-toggle:checked ~ .nav-menu {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .contact-info {
+        font-size: 13px;
+      }
+
+      .logo-text {
+        font-size: 1.5rem;
+      }
+
+      .logo-text img {
+        width: 40px;
+      }
+    }
+
+    /* Desktop Specific */
+    @media (min-width: 993px) {
+      .header-container {
+        align-items: center;
+      }
+
+      .nav-menu {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .nav-menu .nav-item:first-child {
+        display: none; /* Hide 'Home' if logo replaces it */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Contact Bar -->
+  <div class="topbar">
+    <div class="contact-info">+91 000-000-00</div>
+  </div>
+
+  <!-- Header Section -->
+  <div class="header-container">
+    <!-- Logo -->
+    <a href="#" class="logo-text">
+      <img src="img/Logo.png" alt="Aarogya Care Logo"> Aarogya care
+    </a>
+
+    <!-- Hamburger Toggle -->
+    <input type="checkbox" id="mobile-menu-toggle">
+    <label for="mobile-menu-toggle" class="three-dot-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <!-- Navigation -->
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="#" class="nav-link active">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Blood Test</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Genetic Testing</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Doctor Consultation</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Supplements</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Health Tips</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Offers</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+    </ul>
+  </div>
+
+</body>
+</html>
